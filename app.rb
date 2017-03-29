@@ -1,6 +1,9 @@
 require 'sinatra'
 require 'cassandra'
 
+set :bind, '0.0.0.0'
+set :port, 4567
+
 cluster = Cassandra.cluster(hosts: ['node.cassandra.l4lb.thisdcos.directory'])
 session = cluster.connect("demo")
 
